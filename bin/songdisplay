@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+import gi
+gi.require_version('Playerctl', '2.0')
+from gi.repository import Playerctl, GLib
+
+player = Playerctl.Player()
+# metadata = player.props.metadata
+if player.props.player_name is not None and player.get_artist() is not None:
+    symbol = '' if player.props.status == 'Playing' else ''
+    artist_with_song = '{} - {}'.format(player.get_artist(), player.get_title())
+    print('{} {}'.format(symbol, artist_with_song))
