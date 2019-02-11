@@ -15,6 +15,7 @@ if dein#load_state('~/.vim/bundles/')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
+  call dein#add('davidhalter/jedi-vim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -31,7 +32,13 @@ set number
 set modeline
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set expandtab " spaces in tabs
-set tabstop=4 " amount of spaces in TAB
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
 set showmatch " matching brackets
 set splitbelow
 set splitright

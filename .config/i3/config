@@ -199,5 +199,3 @@ bar {
 
 #open software in specific workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-exec --no-startup-id i3-msg 'workspace 2; exec spotify'
-exec --no-startup-id i3-msg 'workspace 3; exec signal-desktop'

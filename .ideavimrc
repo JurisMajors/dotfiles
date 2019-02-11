@@ -2,6 +2,7 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+nmap <C-W>f :action ActivateProjectToolWindow<CR> 
 nnoremap ; :
 vnoremap < <gv 
 vnoremap > >gv
