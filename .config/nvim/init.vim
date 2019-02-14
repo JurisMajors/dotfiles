@@ -9,13 +9,15 @@ if dein#load_state('~/.vim/bundles/')
   call dein#begin('~/.vim/bundles/')
 
   call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Valloric/YouCompleteMe')
+  call dein#add('scrooloose/nerdtree')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('tmhedberg/SimpylFold')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
   call dein#add('davidhalter/jedi-vim')
+  call dein#add('artur-shaik/vim-javacomplete2')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -24,6 +26,9 @@ if dein#load_state('~/.vim/bundles/')
   call dein#end()
   call dein#save_state()
 endif
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd VimEnter * NERDTree | wincmd p
+set rtp+=~/.fzf
 colorscheme jellybeans 
 filetype plugin indent on
 syntax enable
@@ -65,3 +70,4 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L> 
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
+nnoremap <C-W><C-S> :NERDTreeToggle<CR>

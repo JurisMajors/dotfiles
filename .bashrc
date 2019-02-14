@@ -123,3 +123,5 @@ if ! shopt -oq posix; then
 fi
 export PATH=$PATH:/home/juris/Downloads/idea-IU-183.5429.30/bin
 export EDITOR=nvim
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
