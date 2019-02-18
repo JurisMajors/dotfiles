@@ -97,7 +97,6 @@ alias sa="sudo apt"
 alias sag="sudo apt-get"
 alias r="ranger"
 alias v="nvim"
-alias git="sudo git"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -127,3 +126,6 @@ export EDITOR=nvim
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+function cd() {
+    builtin cd "$@" && ls
+}
