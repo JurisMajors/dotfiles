@@ -97,6 +97,7 @@ alias sa="sudo apt"
 alias sag="sudo apt-get"
 alias r="ranger"
 alias v="nvim"
+alias idea="idea.sh"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,7 +122,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PATH=$PATH:/home/juris/Downloads/idea-IU-183.5429.30/bin
+export PATH=$PATH:/home/juris/Downloads/idea-IU-183.5429.30/bin/
 export EDITOR=nvim
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
