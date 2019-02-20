@@ -19,6 +19,8 @@ if dein#load_state('~/.vim/bundles/')
   call dein#add('rafi/awesome-vim-colorschemes')
   call dein#add('davidhalter/jedi-vim')
   call dein#add('artur-shaik/vim-javacomplete2')
+  call dein#add('mboughaba/i3config.vim')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -31,7 +33,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd VimEnter * NERDTree | wincmd p
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme jellybeans 
+colorscheme happy_hacking 
 filetype plugin indent on
 syntax enable
 let mapleader="\<SPACE>"
@@ -105,7 +107,7 @@ endif
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd VimEnter * NERDTree | wincmd p
 set rtp+=~/.fzf
-colorscheme jellybeans 
+colorscheme happy_hacking 
 filetype plugin indent on
 syntax enable
 let mapleader="\<SPACE>"
@@ -147,3 +149,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
