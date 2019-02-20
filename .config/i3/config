@@ -163,8 +163,6 @@ bindsym $mod+Control+Left exec playerctl --player=spotify previous
 # for dual monitors, xrandr script
 exec ~/bin/layout.sh
 exec compton # screen tearing, nice animations etc
-# background
-exec ~/.fehbg
 # network manager
 exec --no-startup-id nm-applet
 
@@ -200,3 +198,5 @@ bar {
 
 #open software in specific workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+# background
+exec ~/.fehbg

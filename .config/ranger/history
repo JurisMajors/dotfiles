@@ -19,14 +19,12 @@ search test
 mkdir
 mkdir AI-Draughts
 search .config
-
 search config
 search ranger
 shell -p sudo bash netbeans
 shell -p sudo bash netbeans 
 ll
 search con
-delete
 search conf
 rename netbeansS
 search .local
@@ -36,3 +34,6 @@ open_with nvim
 ./configure
 q]
 search xi
+
+mark \.jpg$
+delete
