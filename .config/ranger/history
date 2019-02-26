@@ -36,4 +36,9 @@ q]
 search xi
 
 mark \.jpg$
+deletey
+Q
+touch z.cpp
 delete
+!mv CPPS Judge
+shell -p mv CPPS Judge

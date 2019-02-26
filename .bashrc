@@ -97,7 +97,6 @@ alias sa="sudo apt"
 alias sag="sudo apt-get"
 alias r="ranger"
 alias v="nvim"
-alias idea="idea.sh"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
