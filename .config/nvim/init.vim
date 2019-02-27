@@ -29,11 +29,11 @@ if dein#load_state('~/.vim/bundles/')
   call dein#end()
   call dein#save_state()
 endif
+
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd VimEnter * NERDTree | wincmd p
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme happy_hacking 
 filetype plugin indent on
 syntax enable
 let mapleader="\<SPACE>"
@@ -107,7 +107,6 @@ endif
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd VimEnter * NERDTree | wincmd p
 set rtp+=~/.fzf
-colorscheme happy_hacking 
 filetype plugin indent on
 syntax enable
 let mapleader="\<SPACE>"
@@ -163,3 +162,4 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+colorscheme tender

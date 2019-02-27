@@ -1,6 +1,13 @@
-rofi.color-enabled:true
-rofi.font: System San Francisco Display 18
-rofi.color-window: argb:cc2f343f, argb:cc2f343f, argb:cc2f343f
-rofi.color-normal: argb:002f343f, #d8dee8, argb:002f343f, argb:002f343f, #bf616a
-rofi.color-active: #2f343f, #b48ead, #2f343f, #2f343f, #93e5cc
-rofi.color-urgent: #2f343f, #ebcb8b, #2f343f, #2f343f, #ebcb8b
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #404040, #404040, #000000
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal:  #404040, #d0d0d0, #404040, #404040, #ffffff
+rofi.color-active:  #404040, #0066ff, #404040, #404040, #0066ff
+rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
+
+! Set the desired separator style
+rofi.separator-style: solidrofi.color-enabled:true
