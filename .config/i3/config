@@ -172,8 +172,8 @@ exec compton # screen tearing, nice animations etc
 # network manager
 exec --no-startup-id nm-applet
 
-set $inactive-bg-color   #000000
-set $bg-color            #111111
+set $bg-color            #000000
+set $inactive-bg-color   #111111
 set $text-color          #cccccc
 set $inactive-text-color #cccccc
 set $urgent-bg-color     #E53935
@@ -192,7 +192,7 @@ bar {
         position top
         font pango:System San Francisco 10
        	colors {
-			background $bg-color
+			background $inactive-bg-color
 		    	separator #757575
 			#                  border             background         text
 			focused_workspace  $bg-color          $bg-color          $text-color
