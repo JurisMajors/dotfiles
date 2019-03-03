@@ -11,3 +11,36 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 
 ! Set the desired separator style
 rofi.separator-style: solidrofi.color-enabled:true
+URxvt.font: xft:monospace:size=12
+URxvt.scrollBar: false
+URxvt.letterSpace: -1
+URxvt.cursorBlink: 1
+! special
+URxvt*.foreground:   #d2d2d2
+URxvt*.background:   #000000
+! black
+URxvt*.color0:       #000000
+URxvt*.color8:       #38252c
+! red
+URxvt*.color1:       #d81765
+URxvt*.color9:       #ff0000
+! green
+URxvt*.color2:       #97d01a
+URxvt*.color10:      #76b639
+! yellow
+URxvt*.color3:       #ffa800
+URxvt*.color11:      #e1a126
+! blue
+URxvt*.color4:       #16b1fb
+URxvt*.color12:      #289cd5
+! magenta
+URxvt*.color5:       #ff2491
+URxvt*.color13:      #ff2491
+URxvt*.cursorColor:  #ff2491
+! cyan
+URxvt*.color6:       #0fdcb6
+URxvt*.color14:      #0a9b81
+! white
+URxvt*.color7:       #ebebeb
+URxvt*.color15:      #f8f8f8
+
