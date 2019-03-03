@@ -5,3 +5,4 @@ alias r="ranger"
 alias v="nvim"
 alias ls='ls --color=auto'
 bind -x $'"\C-l":clear;'
+force_color_prompt=yes
