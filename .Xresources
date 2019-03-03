@@ -12,9 +12,9 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 ! Set the desired separator style
 rofi.separator-style: solidrofi.color-enabled:true
 URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.font:     xft:FantasqueSansMono Nerd Font:size=13
+URxvt.font:     xft:FantasqueSansMono Nerd Font:size=13,xft:Noto Sans:size=11
 URxvt.scrollBar: false
-! URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.cursorBlink: 1
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/firefox
