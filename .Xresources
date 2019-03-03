@@ -13,6 +13,8 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 rofi.separator-style: solidrofi.color-enabled:true
 URxvt.perl-lib: /usr/lib/urxvt/perl/
 URxvt.font:     xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11
+URxvt.transparent: true
+URxvt.shading: 10
 !URxvt.font:     xft:Noto Sans:size=13,xft:Noto Sans:size=11
 URxvt.scrollBar: false
 URxvt.letterSpace: 0

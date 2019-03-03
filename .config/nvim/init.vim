@@ -33,6 +33,7 @@ endif
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 autocmd VimEnter * NERDTree | wincmd p
 let g:ycm_use_clangd='Never'
+let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
 colorscheme happy_hacking
