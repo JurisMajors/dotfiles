@@ -11,19 +11,24 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 
 ! Set the desired separator style
 rofi.separator-style: solidrofi.color-enabled:true
+URxvt.modifier: alt
 URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.font:     xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11
+URxvt.perl-ext-common: default,matcher,keyboard-select
+!font
+URxvt.font:   xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11
+! transperancy
 URxvt.transparent: true
 URxvt.shading: 10
-!URxvt.font:     xft:Noto Sans:size=13,xft:Noto Sans:size=11
+! disable that ugliness
 URxvt.scrollBar: false
 URxvt.letterSpace: 0
 URxvt.cursorBlink: 1
-URxvt.perl-ext-common: default,matcher
+
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
+! magenta beauty
 URxvt*.cursorColor:  #ff2491
-
+! colorscheme 
 URxvt*.foreground:   #d2d2d2
 URxvt*.background:   #000000
 URxvt*.color0:       #303030
