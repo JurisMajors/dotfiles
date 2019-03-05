@@ -174,7 +174,7 @@ bindsym $mod+minus scratchpad show
 exec compton
 # network manager
 exec --no-startup-id nm-applet
-# monitors
+# monitors and background
 exec layout.sh
 
 set $bg-color            #000000
@@ -195,13 +195,13 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
-        font pango:Fantasque Sans Mono Nerd Font 12
+        font pango:Fantasque Sans Mono Nerd Font 13
        	colors {
 			background $inactive-bg-color
 		    	separator #757575
 			#                  border             background         text
 			focused_workspace  #580000            #580000            $text-color
-			inactive_workspace #000000            #000000        $text-color
+			inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
 			urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 		}
 
@@ -209,5 +209,3 @@ bar {
 
 #open software in specific workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-# background
-exec feh --randomize --bg-fill ~/Wallpapers/* 
