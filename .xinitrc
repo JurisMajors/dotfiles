@@ -8,5 +8,4 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
-feh --randomize --bg-fill ~/Wallpapers/*
 exec i3

@@ -9,5 +9,6 @@ alias r="ranger"
 alias v="nvim"
 alias ls='ls --color=auto'
 bind -x $'"\C-l":clear;'
+export PATH=$PATH:$HOME/bin/
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh

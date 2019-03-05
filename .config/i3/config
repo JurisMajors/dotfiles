@@ -168,9 +168,14 @@ bindcode 68 exec amixer set 'Master' 1%-
 # toggle mute
 bindcode 67 exec amixer -D pulse set 'Master' 1+ toggle
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 exec compton
 # network manager
 exec --no-startup-id nm-applet
+# monitors
+exec layout.sh
 
 set $bg-color            #000000
 set $inactive-bg-color   #111111
@@ -195,8 +200,8 @@ bar {
 			background $inactive-bg-color
 		    	separator #757575
 			#                  border             background         text
-			focused_workspace  $bg-color          $bg-color          $text-color
-			inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+			focused_workspace  #580000            #580000            $text-color
+			inactive_workspace #000000            #000000        $text-color
 			urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 		}
 
@@ -204,3 +209,5 @@ bar {
 
 #open software in specific workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+# background
+exec feh --randomize --bg-fill ~/Wallpapers/* 
