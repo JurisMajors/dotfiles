@@ -13,7 +13,14 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 rofi.separator-style: solidrofi.color-enabled:true
 URxvt.modifier: alt
 URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.perl-ext-common: default,matcher,keyboard-select
+URxvt.perl-ext-common: default,matcher,url-select,keyboard-select
+! url-jumping
+URxvt.keysym.C-u:   perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+! keyboard-slect
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
 !font
 URxvt.font:   xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11
 ! transperancy
