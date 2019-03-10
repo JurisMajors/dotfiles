@@ -10,16 +10,18 @@ if dein#load_state('/home/juris/.cache/dein')
 
   call dein#add('/home/juris/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('skywind3000/asyncrun.vim')
-  call dein#add('Valloric/YouCompleteMe')
   call dein#add('scrooloose/nerdtree')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('tmhedberg/SimpylFold')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
+  call dein#add('artur-shaik/vim-javacomplete2')
   call dein#add('davidhalter/jedi-vim')
   call dein#add('mboughaba/i3config.vim')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('tpope/vim-surround')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -30,8 +32,7 @@ if dein#load_state('/home/juris/.cache/dein')
 endif
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" autocmd VimEnter * NERDTree | wincmd p
-let g:ycm_use_clangd='Never'
+let g:deoplete#enable_at_startup=1
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
