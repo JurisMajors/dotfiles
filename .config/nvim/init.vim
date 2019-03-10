@@ -18,7 +18,6 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
   call dein#add('davidhalter/jedi-vim')
-  call dein#add('artur-shaik/vim-javacomplete2')
   call dein#add('mboughaba/i3config.vim')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   if !has('nvim')
@@ -31,7 +30,7 @@ if dein#load_state('/home/juris/.cache/dein')
 endif
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 let g:ycm_use_clangd='Never'
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
@@ -78,3 +77,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+vnoremap < <gv
+vnoremap > >gv
