@@ -13,11 +13,11 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('scrooloose/nerdtree')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('tmhedberg/SimpylFold')
+  call dein#add('artur-shaik/vim-javacomplete2')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
-  call dein#add('artur-shaik/vim-javacomplete2')
-  call dein#add('davidhalter/jedi-vim')
+  call dein#add('davidhalter/jedi-vim') " python completion
   call dein#add('mboughaba/i3config.vim')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('Shougo/deoplete.nvim')
@@ -31,13 +31,23 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#save_state()
 endif
 
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 0
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+
+let g:jedi#popup_on_dot=1
+let g:jedi#completions_command="<C-Space>"
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
 colorscheme happy_hacking
-filetype plugin indent on
 syntax enable
 let mapleader="\<SPACE>"
 set number
@@ -83,6 +93,9 @@ inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+inoremap < <><left>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 vnoremap < <gv
