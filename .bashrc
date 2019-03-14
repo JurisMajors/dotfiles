@@ -13,3 +13,4 @@ bind -x $'"\C-l":clear;'
 export PATH=$PATH:$HOME/bin/
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
+alias tb="nc termbin.com 9999"
