@@ -91,7 +91,8 @@ if(&relativenumber!=1)
    call NumberToggle() " init with relative number
 endif
 " leader + r toggles between normal and relative
-nnoremap <leader>r :call NumberToggle()<cr> 
+nnoremap <leader>r :call NumberToggle()<CR> 
+nnoremap ,<leader> :nohlsearch<CR>
 " minimize keystrokes 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -99,12 +100,21 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
+" print shortcut
+autocmd FileType java inoremap sout<space> System.out.println();<left><left>
+" main method shortcut
+autocmd FileType java inoremap psvm<space> public static void main(String[] args) {<CR>}<ESC>O
+" compiling
+autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
 inoremap " ""<left>
 inoremap ' ''<left>
+" if pressing space after then just empty brackets
+inoremap (<space> ()<right>
+" otherwise go in brackets and type
 inoremap ( ()<left>
+inoremap [<space> []<right>
 inoremap [ []<left>
-inoremap { {}<left>
-inoremap < <><left>
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap {<CR> {<CR>}<ESC>O
