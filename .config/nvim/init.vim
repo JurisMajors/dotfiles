@@ -22,6 +22,9 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('tpope/vim-surround')
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
+
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -34,6 +37,7 @@ endif
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" default deoplete settings
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 0
 let g:deoplete#sources = {}
@@ -41,8 +45,9 @@ let g:deoplete#sources._ = []
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-let g:deoplete#disable_auto_complete = 1
 
+" autocomplete only on ctrl space
+let g:deoplete#disable_auto_complete = 1
 inoremap <silent><expr> <C-Space>
 \ pumvisible() ? "\<C-n>" :
 \ <SID>check_back_space() ? "\<TAB>" :
@@ -53,13 +58,24 @@ function! s:check_back_space() abort "{{{
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunc
 
+" python auto complete
 let g:jedi#popup_on_dot=1
 let g:jedi#completions_command="<C-Space>"
+
+" snippet basic binds 
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="/home/juris/.cache/dein/repos/github.com/honza/vim-snippets/UltiSnips/"
+let g:UltiSnipsEditSplit="vertical"
+
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
 colorscheme happy_hacking
 syntax enable
+
 let mapleader="\<SPACE>"
 set number
 set modeline
@@ -79,6 +95,7 @@ set ignorecase " searching is case insensitive
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
 function! NumberToggle() " relative number toggle
 	if(&relativenumber==1)
 		set nornu
@@ -87,9 +104,11 @@ function! NumberToggle() " relative number toggle
 		set rnu
 	endif
 endfunc
+
 if(&relativenumber!=1)
    call NumberToggle() " init with relative number
 endif
+
 " leader + r toggles between normal and relative
 nnoremap <leader>r :call NumberToggle()<CR> 
 nnoremap ,<leader> :nohlsearch<CR>
@@ -100,11 +119,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
-" print shortcut
-autocmd FileType java inoremap sout<space> System.out.println();<left><left>
-" main method shortcut
-autocmd FileType java inoremap psvm<space> public static void main(String[] args) {<CR>}<ESC>O
-" compiling
+" compiling java
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -114,10 +129,11 @@ inoremap (<space> ()<right>
 inoremap ( ()<left>
 inoremap [<space> []<right>
 inoremap [ []<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" dont leave visual mode after reindenting
 vnoremap < <gv
 vnoremap > >gv
