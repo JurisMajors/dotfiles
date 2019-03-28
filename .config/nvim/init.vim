@@ -73,7 +73,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme happy_hacking
+colorscheme molokayo
 syntax enable
 
 let mapleader="\<SPACE>"
@@ -121,14 +121,14 @@ nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
 " compiling java
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
-inoremap " ""<left>
-inoremap ' ''<left>
+inoremap "" ""<left>
+inoremap '' ''<left>
 " if pressing space after then just empty brackets
 inoremap (<space> ()<right>
 " otherwise go in brackets and type
-inoremap ( ()<left>
+inoremap () ()<left>
 inoremap [<space> []<right>
-inoremap [ []<left>
+inoremap [] []<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
