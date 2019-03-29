@@ -55,7 +55,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " autocomplete only on ctrl space
@@ -94,6 +94,7 @@ set modeline
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set expandtab " spaces in tabs
 set autoindent
+set incsearch
 set smartindent
 set tabstop=4
 set softtabstop=0
@@ -133,17 +134,23 @@ nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
 " compiling java
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
-inoremap "" ""<left>
-inoremap '' ''<left>
-" if pressing space after then just empty brackets
-inoremap (<space> ()<right>
-" otherwise go in brackets and type
-inoremap () ()<left>
+" smarter bracket binds
 inoremap [<space> []<right>
-inoremap [] []<left>
+inoremap [] []<right>
+inoremap [ []<left>
+
+inoremap (<space> ()<right>
+inoremap () ()<right>
+inoremap ( ()<left>
+inoremap {<space> {}<right>
+inoremap {} {}<right>
+inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+inoremap "" ""<left>
+inoremap '' ''<left>
+" otherwise go in brackets and type
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " dont leave visual mode after reindenting
