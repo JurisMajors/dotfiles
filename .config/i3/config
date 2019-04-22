@@ -10,7 +10,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -38,7 +38,7 @@ bindsym $mod+Shift+q kill
 
 default_border pixel 2
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show run 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -154,24 +154,25 @@ bindsym $mod+r mode "resize"
 # screenshot to clipboard
 bindsym $mod+Control+s exec ~/bin/screenshot.sh
 # music player
-bindsym $mod+Control+Down exec playerctl --player=spotify play-pause
+bindsym XF86AudioPlay exec mpc toggle
 # skip song 
-bindsym $mod+Control+Right exec playerctl --player=spotify next
+bindsym XF86AudioNext  exec mpc next
 # previous song
-bindsym $mod+Control+Left exec playerctl --player=spotify previous
+bindsym XF86AudioPrev exec mpc prev
 # brightness up
 bindcode 233 exec xbacklight -inc 5
 # brightness down
 bindcode 232 exec xbacklight -dec 5
 # increase volume
-bindcode 123 exec amixer set 'Master' 1%+
+bindsym XF86AudioRaiseVolume exec amixer set 'Master' 1%+
 # decrease volume
-bindcode 122 exec amixer set 'Master' 1%-
+bindsym XF86AudioLowerVolume  exec amixer set 'Master' 1%-
 # toggle mute
-bindcode 121 exec amixer -D pulse set 'Master' 1+ toggle
+bindsym XF86AudioMute exec amixer -D pulse set 'Master' 1+ toggle
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+# capslock indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 exec compton

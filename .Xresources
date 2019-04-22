@@ -22,7 +22,8 @@ URxvt.url-select.underline: true
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 ! font
-URxvt.font:   xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11
+URxvt.font:   xft:Fantasque Sans Mono Nerd Font:size=13,xft:Noto Sans:size=11,xft:Terminess Powerline:size12
+!URxvt.font: xft:Terminess Powerline:size=12
 URxvt.keysym.C-minus:   font-size:decrease
 URxvt.keysym.C-equal:    font-size:increase
 ! transperancy
