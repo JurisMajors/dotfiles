@@ -178,7 +178,7 @@ exec compton
 # network manager
 exec --no-startup-id nm-applet
 # monitors and background
-exec layout.sh
+exec /home/juris/bin/layout.sh
 
 set $bg-color            #000000
 set $inactive-bg-color   #111111

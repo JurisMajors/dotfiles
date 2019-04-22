@@ -64,16 +64,16 @@ let g:jedi#completions_command="<C-Space>"
 
 " snippet basic binds 
 let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-h>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsListSnippets="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:UltiSnipsSnippetsDir="/home/juris/.cache/dein/repos/github.com/honza/vim-snippets/UltiSnips/"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme happy_hacking
+colorscheme molokayo
 syntax enable
 
 let mapleader="\<SPACE>"
