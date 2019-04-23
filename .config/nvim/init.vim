@@ -10,21 +10,29 @@ if dein#load_state('/home/juris/.cache/dein')
 
   call dein#add('/home/juris/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('skywind3000/asyncrun.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('tmhedberg/SimpylFold')
-  call dein#add('artur-shaik/vim-javacomplete2')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('davidhalter/jedi-vim') " python completion
-  call dein#add('mboughaba/i3config.vim')
+  " file tree
   call dein#add('Xuyuanp/nerdtree-git-plugin')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('vim-syntastic/syntastic')
+  call dein#add('scrooloose/nerdtree')
+  " language pack
+  call dein#add('sheerun/vim-polyglot')
+  " folding
+  call dein#add('tmhedberg/SimpylFold')
+  " syntax for i3
+  call dein#add('mboughaba/i3config.vim')
+  " surrounding character easier
   call dein#add('tpope/vim-surround')
-
+  " autocomplete and syntax checking
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('artur-shaik/vim-javacomplete2') " java
+  call dein#add('vim-syntastic/syntastic')
+  call dein#add('davidhalter/jedi-vim') " python completion
+  " latex support
+  call dein#add('lervag/vimtex')
+  " snippets
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
-
+  " themes
+  call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
 
@@ -73,7 +81,16 @@ endfunc
 " python auto complete
 let g:jedi#popup_on_dot=1
 let g:jedi#completions_command="<C-Space>"
-
+" tex setup
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'pdflatex'
+let g:vimtex_view_method = 'zathura'
+call deoplete#custom#var('omni', 'input_patterns', {
+            \ 'tex' : g:vimtex#re#deoplete
+            \})
 " snippet basic binds 
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
