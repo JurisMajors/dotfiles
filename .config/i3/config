@@ -151,6 +151,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+focus_follows_mouse no
+
 # screenshot to clipboard
 bindsym $mod+Control+s exec ~/bin/screenshot.sh
 # music player
