@@ -151,23 +151,24 @@ nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
 " compiling java
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
+" compiling latex
+autocmd FileType tex nnoremap <buffer> <F9> :exec 'VimtexCompile'<CR>
 " smarter bracket binds
-inoremap [<space> []<right>
-inoremap [] []<right>
+inoremap [<space> []
+inoremap [] []
 inoremap [ []<left>
-
-inoremap (<space> ()<right>
-inoremap () ()<right>
+inoremap (<space> ()
+inoremap () ()
 inoremap ( ()<left>
-inoremap {<space> {}<right>
-inoremap {} {}<right>
+inoremap {<space> {}
+inoremap {} {}
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 inoremap "" ""<left>
 inoremap '' ''<left>
-" otherwise go in brackets and type
+" looping through autocomplete suggestions
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " dont leave visual mode after reindenting
