@@ -5,7 +5,8 @@ stty -ixon
 export EDITOR=nvim
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
-alias sp="sudo pacman"
+export PATH=$PATH:$HOME/bin/
+# ranger opening
 function ranger-cd {
     # create a temp file and store the name
     tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -27,11 +28,14 @@ function ranger-cd {
     # boot
     rm -f -- "$tempfile"
 }
+# aliases
+alias sp="sudo pacman"
 alias r=ranger-cd
 alias v="nvim"
 alias ls='ls --color=auto'
+alias tb="nc termbin.com 9999"
+alias cb="xclip -selection clipboard"
+
 bind -x $'"\C-l":clear;'
-export PATH=$PATH:$HOME/bin/
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
-alias tb="nc termbin.com 9999"
