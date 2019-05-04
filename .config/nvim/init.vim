@@ -142,6 +142,8 @@ endif
 " leader + r toggles between normal and relative
 nnoremap <leader>r :call NumberToggle()<CR> 
 nnoremap ,<leader> :nohlsearch<CR>
+" search and replace with leader s
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " minimize keystrokes 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
