@@ -8,6 +8,5 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
-php /home/juris/koel/artisan serv --host 0.0.0.0 &
 mpd ~/.config/mpd/mpd.conf
 exec i3
