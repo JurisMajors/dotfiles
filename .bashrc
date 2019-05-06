@@ -3,8 +3,7 @@ export PS1="\[\033[38;5;52m\][\[$(tput sgr0)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]
 set -o vi
 stty -ixon
 export EDITOR=nvim
-export LC_ALL=en_US.utf-8
-export LANG="$LC_ALL"
+# export LANG="$LC_ALL"
 export PATH=$PATH:$HOME/bin/
 # ranger opening
 function ranger-cd {
@@ -37,5 +36,3 @@ alias tb="nc termbin.com 9999"
 alias cb="xclip -selection clipboard"
 
 bind -x $'"\C-l":clear;'
-GIT_PROMPT_ONLY_IN_REPO=1
-source ~/.bash-git-prompt/gitprompt.sh
