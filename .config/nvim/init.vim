@@ -32,8 +32,8 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
   " themes
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
+  " call dein#add('vim-airline/vim-airline')
+  " call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
 
   if !has('nvim')
@@ -57,9 +57,9 @@ let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 " recommended synatsic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFLag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFLag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -99,7 +99,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 let g:UltiSnipsSnippetsDir="/home/juris/.cache/dein/repos/github.com/honza/vim-snippets/UltiSnips/"
 let g:UltiSnipsEditSplit="vertical"
 
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
 colorscheme molokayo
