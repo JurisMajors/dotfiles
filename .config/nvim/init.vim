@@ -1,5 +1,5 @@
 if &compatible
-  set nocompatible
+  eset nocompatible
 endif
 syntax on
 " Add the dein installation directory into runtimepath
@@ -32,8 +32,6 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
   " themes
-  " call dein#add('vim-airline/vim-airline')
-  " call dein#add('vim-airline/vim-airline-themes')
   call dein#add('rafi/awesome-vim-colorschemes')
 
   if !has('nvim')
@@ -135,6 +133,13 @@ function! NumberToggle() " relative number toggle
 	endif
 endfunc
 
+fun! SplitTerminal()
+    " open buffer
+    exe '15new'
+    exe 'terminal'
+endfunc
+
+
 if(&relativenumber!=1)
    call NumberToggle() " init with relative number
 endif
@@ -144,6 +149,9 @@ nnoremap <leader>r :call NumberToggle()<CR>
 nnoremap ,<leader> :nohlsearch<CR>
 " search and replace with leader s
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" terminal 
+nnoremap <buffer> <Leader>mt :call SplitTerminal()<CR>
+tnoremap <C-n><Esc> <C-\><C-n>
 " minimize keystrokes 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -151,10 +159,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ; :
 nnoremap <C-W><C-S> :NERDTreeToggle<CR>
-" compiling java
+" compiling a java file
 autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1)<CR>
 " compiling latex
 autocmd FileType tex nnoremap <buffer> <F9> :exec 'VimtexCompile'<CR>
+
 " smarter bracket binds
 inoremap [<space> []
 inoremap [] []
