@@ -32,7 +32,7 @@ alias sp="sudo pacman"
 alias r=ranger-cd
 alias v="nvim"
 alias ls='ls --color=auto'
-alias tb="nc termbin.com 9999"
+alias tb="nc seashells.io 1337"
 alias cb="xclip -selection clipboard"
 
 bind -x $'"\C-l":clear;'
