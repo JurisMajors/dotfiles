@@ -6,3 +6,6 @@ nmap <C-W>f :action ActivateProjectToolWindow<CR>
 nnoremap ; :
 vnoremap < <gv 
 vnoremap > >gv
+
+set rnu
+set nu
