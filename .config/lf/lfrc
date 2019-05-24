@@ -38,7 +38,7 @@ map Dd trash #LOOOL
 # delete without moving to thrash
 map DD delete
 
-map br $~/.config/lf/bulkrename.sh "$fs"
+map br $bulkrename.sh "$fs"
 
 # directory mappings
 map gh cd ~
