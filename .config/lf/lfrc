@@ -39,16 +39,29 @@ map DD delete
 
 map br $bulkrename.sh "$fs"
 
+map <c-c> cmd-interrupt
 # directory mappings
 map gh cd ~
 map gu cd ~/Uni/
 map gC cd ~/.config/
-
+map gd cd ~/Downloads; set sortby time; set reverse
+map gr cd /
+map gp cd -
 # make directories
 cmd mkdir %mkdir "$@"
 cmd touch %touch "$@"
 map ad push :mkdir<space>
 map af push :touch<space>
+
+map zn set info
+map zs set info size
+map zt set info time
+map za set info size:time
+map sN :set sortby natural; set info
+map ss :set sortby size; set info size
+map sT :set sortby time; set info time
+map sn :set sortby natural; set info; set noreverse
+map st :set sortby time; set info time; set reverse
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
