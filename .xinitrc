@@ -7,5 +7,4 @@ fi
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 mpd ~/.config/mpd/mpd.conf
-eval $(ssh-agent)
 exec i3
