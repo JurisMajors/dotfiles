@@ -17,6 +17,7 @@ set shellopts '-eu'
 # commands accordingly.
 set ifs "\n"
 
+map <c-v> pv-all-imgs
 
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
@@ -28,8 +29,6 @@ map <enter> shell
 map x $$f
 map X !$f
 
-# open images or folders with sxiv
-map oi !sxiv -r $fx
 # see hidden files
 map <bs2> :set hidden!
 
@@ -121,4 +120,11 @@ cmd paste &{{
     fi
     lf -remote 'send load'
     lf -remote 'send clear'
+}}
+
+cmd pv-all-imgs &{{
+                     file --mime-type ./* | \
+                         grep image/ | \
+                         awk -F':' '{print $1}' | \
+                         sxiv -t -
 }}
