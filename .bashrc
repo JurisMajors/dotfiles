@@ -4,7 +4,7 @@ set -o vi
 stty -ixon
 export EDITOR=nvim
 export OPENER=xdg-open
-export TERMINAL=termite
+export TERMINAL=alacritty
 export PATH=$PATH:$HOME/bin/
 lfcd () {
     tmp="$(mktemp)"

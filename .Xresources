@@ -11,3 +11,10 @@ rofi.color-urgent:  #404040, #ff0000, #404040, #404040, #ff0000
 
 ! Set the desired separator style
 rofi.separator-style: solidrofi.color-enabled:true
+Xft.dpi: 144
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.rgba: rgb
+Xfg.hinting: 1
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull<Paste>
