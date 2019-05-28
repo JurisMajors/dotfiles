@@ -39,6 +39,8 @@ map DD delete
 
 map br $bulkrename.sh "$fs"
 
+map f $lf -remote "send $id select '$(fzf)'"
+
 map <c-c> cmd-interrupt
 # directory mappings
 map gh cd ~
