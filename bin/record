@@ -13,7 +13,7 @@ fi
 
 notify-send -u "low" -t 1000 "Select recording area"
 # write the drawn rectangle to an array
-IFS=" " read -ra RECTANGLE <<< "$(xrectsel -f "%x %y %w %h")" || exit -1
+IFS=" " read -ra RECTANGLE <<< "$(slop -f "%x %y %w %h")" || exit -1
 # delay for recording
 for (( i=$DELAY; i>0; --i )) ; do
     notify-send -u "low" -t 1010 "Recording in ... $i"
@@ -28,4 +28,5 @@ info="$(imgur-uploader $tmp)"
 IFS=" " read -ra split_info <<< "$(echo $info | grep https)"
 # save url to clipboard
 echo "${split_info[-1]}" | xclip -selection clipboard
+notify-send -t 500 "saved on clipboard"
 rm -f $tmp
