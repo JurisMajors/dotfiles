@@ -21,12 +21,10 @@ for (( i=$DELAY; i>0; --i )) ; do
 done
 notify-send -t 500 "Recording for $D seconds!"
 
-byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D $tmp
+byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D $tmp > /dev/null
 notify-send -t 1010 "Recording finished!"
-info="$(imgur-uploader $tmp)"
-# parse the url from stupid imgur-uploader output
-IFS=" " read -ra split_info <<< "$(echo $info | grep https)"
-# save url to clipboard
-echo "${split_info[-1]}" | xclip -selection clipboard
-notify-send -t 500 "saved on clipboard"
-rm -f $tmp
+# upload and save url to clipboard
+imgur $tmp
+if [ -e "$tmp" ] ; then
+    rm -f $tmp
+fi
