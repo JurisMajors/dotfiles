@@ -5,23 +5,16 @@ DELAY=2
 
 # Duration and output file
 tmp=$(mktemp)
-if [ $# -gt 0 ]; then
-    D="$1"
-else
-    D="10" 
-fi
+D=30
 
-notify-send -u "low" -t 1000 "Select recording area"
-# write the drawn rectangle to an array
 IFS=" " read -ra RECTANGLE <<< "$(slop -f "%x %y %w %h")" || exit -1
 # delay for recording
 for (( i=$DELAY; i>0; --i )) ; do
     notify-send -u "low" -t 1010 "Recording in ... $i"
     sleep 1
 done
-notify-send -t 500 "Recording for $D seconds!"
 
-byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D $tmp > /dev/null
+byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D --exec='dunstify -A "stopAction,stop" "Click here to stop recording!"' $tmp
 notify-send -t 1010 "Recording finished!"
 # upload and save url to clipboard
 imgur $tmp
