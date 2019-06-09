@@ -1,0 +1,14 @@
+#!/bin/bash
+# declare options
+SCREENSHOT="screenshot"
+RECORD="capture"
+# pipe to dmenu
+info=$(echo -e "$SCREENSHOT\n$RECORD" | dmenu)
+# parse output
+# take screenshot and exit
+[ $info == $SCREENSHOT ] && screenshot.sh && exit 1
+
+if [[ "$info" == "$RECORD" ]] ; then
+    scnds=$(" " | dmenu -p "How many seconds?")
+    record $scnds
+fi
