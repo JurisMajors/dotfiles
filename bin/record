@@ -17,7 +17,7 @@ done
 byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D --exec='dunstify -A "stopAction,stop" "Click here to stop recording!"' $tmp
 notify-send -t 1010 "Recording finished!"
 # upload and save url to clipboard
-imgur $tmp
+curl -F"file=@$tmp" http://0x0.st | xclip -sel c
 if [ -e "$tmp" ] ; then
     rm -f $tmp
 fi
