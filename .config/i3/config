@@ -10,7 +10,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -202,7 +202,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
-        font pango:Fantasque Sans Mono Nerd Font 8 
+        font pango:Fantasque Sans Mono Nerd Font 10
        	colors {
 			background $inactive-bg-color
 		    	separator #757575
