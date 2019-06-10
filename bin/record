@@ -7,7 +7,7 @@ DELAY=2
 tmp=$(mktemp)
 D=30
 
-IFS=" " read -ra RECTANGLE <<< "$(slop -f "%x %y %w %h")" || exit -1
+IFS=" " read -ra RECTANGLE <<< "$(slop --highlight --color=0.3,0.4,0.6,0.4 -f "%x %y %w %h")" || exit -1
 # delay for recording
 for (( i=$DELAY; i>0; --i )) ; do
     notify-send -u "low" -t 1010 "Recording in ... $i"
