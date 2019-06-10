@@ -155,7 +155,7 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 # screenshot to clipboard
-bindsym $mod+Control+s exec ~/bin/screenshot.sh
+bindsym $mod+Control+s exec capture_select
 # music player
 bindsym XF86AudioPlay exec mpc toggle
 # skip song 

@@ -1,0 +1,12 @@
+#!/bin/sh
+# declare options
+SCREENSHOT="screenshot"
+RECORD="capture"
+# pipe to dmenu
+info=$(echo -e "$SCREENSHOT\n$RECORD" | dmenu)
+# parse output
+# take screenshot and exit
+[ $info == $SCREENSHOT ] && screenshot.sh && exit 1
+# start recording
+[ $info == $RECORD ] && record
+
