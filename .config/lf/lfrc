@@ -55,6 +55,9 @@ cmd mkdir %mkdir "$@"
 cmd touch %touch "$@"
 map ad push :mkdir<space>
 map af push :touch<space>
+# upload files/outputs
+map of upload_file
+map oo upload_output
 
 map zn set info
 map zs set info size
@@ -73,9 +76,14 @@ map st :set sortby time; set info time; set reverse
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
+        image/*) sxiv $fx;;
         inode/x-empty) $EDITOR $fx;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
+}}
+
+cmd upload_file $ {{
+    curl -F"file=@"$f http://0x0.st | xclip -sel c
 }}
 
 # rename current file without overwrite
