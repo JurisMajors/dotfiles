@@ -6,6 +6,7 @@ export EDITOR=nvim
 export OPENER=xdg-open
 export TERMINAL=alacritty
 export PATH=$PATH:$HOME/bin/
+export XDG_CONFIG_HOME=$HOME/.config/
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
