@@ -6,7 +6,7 @@ RECORD="capture"
 info=$(echo -e "$SCREENSHOT\n$RECORD" | dmenu)
 # parse output
 # take screenshot and exit
-[ $info == $SCREENSHOT ] && screenshot.sh && exit 1
+[ $info = $SCREENSHOT ] && ~/bin/screenshot.sh && exit 1
 # start recording
-[ $info == $RECORD ] && record
+[ $info = $RECORD ] && ~/bin/record
 
