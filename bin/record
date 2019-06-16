@@ -5,7 +5,6 @@ DELAY=2
 
 # Duration and output file
 tmp=$(mktemp)
-D=30
 
 IFS=" " read -ra RECTANGLE <<< "$(slop --highlight --color=0.3,0.4,0.6,0.4 -f "%x %y %w %h")" || exit -1
 # delay for recording
@@ -14,7 +13,7 @@ for (( i=$DELAY; i>0; --i )) ; do
     sleep 1
 done
 
-byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --duration=$D --exec='dunstify -A "stopAction,stop" "Click here to stop recording!"' $tmp
+byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --exec='dunstify -t 30000 -A "stopAction,stop" "Click here to stop recording!"' $tmp
 notify-send -t 1010 "Recording finished!"
 # upload and save url to clipboard
 curl -F"file=@$tmp" http://0x0.st | xclip -sel c
