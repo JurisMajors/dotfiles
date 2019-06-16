@@ -77,7 +77,7 @@ function! s:check_back_space() abort "{{{
 endfunc
 
 " python auto complete
-let g:jedi#popup_on_dot=1
+let g:jedi#popup_on_dot=0
 let g:jedi#completions_command="<C-Space>"
 " tex setup
 let g:tex_flavor  = 'latex'
