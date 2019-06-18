@@ -29,6 +29,8 @@ map <enter> shell
 # execute current file (must be executable)
 map x $$f
 map X !$f
+# unselect everything
+map <esc> :unselect; clear
 
 # see hidden files
 map <bs2> :set hidden!
@@ -38,16 +40,19 @@ map Dd trash #LOOOL
 # delete without moving to thrash
 map DD delete
 
+# bulkrename script
 map br $bulkrename.sh "$fs"
 
+# fuzzy fidner
 map f $lf -remote "send $id select '$(fzf)'"
 
-map <c-c> cmd-interrupt
+# select all things in dir 
+map bs :unselect; invert
 # directory mappings
 map gh cd ~
 map gu cd ~/Uni/
 map gC cd ~/.config/
-map gd cd ~/Downloads; set sortby time; set reverse
+map gd cd ~/Downloads
 map gr cd /
 map gp cd -
 # make directories
@@ -55,9 +60,8 @@ cmd mkdir %mkdir "$@"
 cmd touch %touch "$@"
 map ad push :mkdir<space>
 map af push :touch<space>
-# upload files/outputs
+# upload files/outputs and copy link to clipboard
 map of upload_file
-map oo upload_output
 
 map zn set info
 map zs set info size
@@ -82,8 +86,12 @@ cmd open ${{
     esac
 }}
 
+cmd open_with $$* $f
+
 cmd upload_file $ {{
     curl -F"file=@"$f http://0x0.st | xclip -sel c
+    file=$f
+    notify-send -t 1000 "Link to $file is on clipboard"
 }}
 
 # rename current file without overwrite
