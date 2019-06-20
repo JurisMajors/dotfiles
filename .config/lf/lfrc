@@ -47,7 +47,7 @@ map br $bulkrename.sh "$fs"
 map f $lf -remote "send $id select '$(fzf)'"
 
 # select all things in dir 
-map bs :unselect; invert
+map bs :unselect; clear; invert
 # directory mappings
 map gh cd ~
 map gu cd ~/Uni/
@@ -80,7 +80,6 @@ map st :set sortby time; set info time; set reverse
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
-        image/*) sxiv $fx;;
         inode/x-empty) $EDITOR $fx;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
@@ -158,5 +157,5 @@ cmd pv-all-imgs &{{
                      file --mime-type ./* | \
                          grep image/ | \
                          awk -F':' '{print $1}' | \
-                         sxiv -t -
+                         sxiv -a -t -
 }}
