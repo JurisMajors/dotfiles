@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$1" in
+  "C-x")
+    while read file; do
+      lf -remote "send select '$file'"
+      lf -remote "send toggle"
+    done
+    ;;
+esac
