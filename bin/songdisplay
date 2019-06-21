@@ -1,9 +1,0 @@
-#!/usr/bin/env python3
-import subprocess
-
-mpc_info = subprocess.check_output(["mpc"]).splitlines()
-if len(mpc_info) > 1:
-    playing = "playing" in str(mpc_info[1])
-    symbol = '' if playing else ''
-    artist_with_song = str(mpc_info[0].decode('utf-8')) # bytestring to regular
-    print('{} {}'.format(symbol, artist_with_song))
