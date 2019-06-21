@@ -88,7 +88,7 @@ cmd open ${{
 cmd open_with $$* $f
 
 cmd upload_file $ {{
-    curl -F"file=@"$f http://0x0.st | xclip -sel c
+    /home/juris/bin/upload $f
     file=$f
     notify-send -t 1000 "Link to $file is on clipboard"
 }}
