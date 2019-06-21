@@ -16,7 +16,7 @@ done
 byzanz-record --verbose -c --delay=0 -x ${RECTANGLE[0]} -y ${RECTANGLE[1]} -w ${RECTANGLE[2]} -h ${RECTANGLE[3]} --exec='dunstify -t 30000 -A "stopAction,stop" "Click here to stop recording!"' $tmp
 notify-send -t 1010 "Recording finished!"
 # upload and save url to clipboard
-/home/juris/bin/upload $tmp
+$HOME/bin/upload $tmp
 if [ -e "$tmp" ] ; then
     rm -f $tmp
 fi
