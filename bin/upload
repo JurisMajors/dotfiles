@@ -19,7 +19,8 @@ if [ $MUSIC ]
 then
     AUTHOR=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 "$FILE")
     TITLE=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$FILE")
-    CLIPMSG="Listen to... $AUTHOR - $TITLE"
+    ALBUM=$(ffprobe -loglevel error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$FILE")
+    CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM"
 fi
 
 RESULT=$(curl -F"file=@$FILE" http://0x0.st)
