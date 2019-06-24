@@ -4,6 +4,7 @@ set -o vi
 stty -ixon
 export EDITOR=nvim
 export OPENER=xdg-open
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export TERMINAL=alacritty
 export PATH=$PATH:$HOME/bin/
 export XDG_CONFIG_HOME=$HOME/.config/
