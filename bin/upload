@@ -1,2 +1,31 @@
 #!/bin/bash
-curl -F"file=@$1" http://0x0.st | xclip -selection clipboard
+NOTIFY=false
+CLIPMSG=""
+MUSIC=false
+for i in "$@"
+do
+    case $i in
+        -n)
+            NOTIFY=true ;;
+        --msg=*)
+            CLIPMSG="${i#*=}" ;;
+        -s)
+            MUSIC=true ;;
+    esac
+done
+FILE=${@: -1}
+
+if [ $MUSIC ]
+then
+    AUTHOR=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 "$FILE")
+    TITLE=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$FILE")
+    CLIPMSG="Listen to... $AUTHOR - $TITLE"
+fi
+
+RESULT=$(curl -F"file=@$FILE" http://0x0.st)
+RESULT="$CLIPMSG $RESULT"
+echo "$RESULT" | xclip -selection clipboard
+if [ $NOTIFY ] 
+then
+    notify-send -t 1000 "Link to $FILE is on clipboard!"
+fi
