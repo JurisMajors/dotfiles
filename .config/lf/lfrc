@@ -79,8 +79,7 @@ map st :set sortby time; set info time; set reverse
 # text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        inode/x-empty) $EDITOR $fx;;
+        */json | inode/x-empty | text/*) $EDITOR $fx;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -88,9 +87,8 @@ cmd open ${{
 cmd open_with $$* $f
 
 cmd upload_file $ {{
-    /home/juris/bin/upload $f
+    /home/juris/bin/upload -n $f
     file=$f
-    notify-send -t 1000 "Link to $file is on clipboard"
 }}
 
 # rename current file without overwrite
