@@ -120,7 +120,7 @@ font:
     #style: Bold
 
   # Point size
-  size: 10.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -165,8 +165,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xd2d2d2'
+    background: '0x1f1f1f'
+    foreground: '0xc0b18b'
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
@@ -180,19 +180,29 @@ colors:
   # Colors which should be used to draw the terminal cursor. If these are unset,
   cursor:
     text: '0x000000'
-    cursor: '0xff2491'
+    cursor: '0xC5769D'
 
   # Normal colors
   normal:
-    black:   '0x303030'
-    red:     '0xc10023'
-    green:   '0xa83334'
-    yellow:  '0xb51d2c'
-    blue:    '0x8c4b46'
-    magenta: '0x7d534f'
-    cyan:    '0x9a413d'
-    white:   '0xc6c6c6'
+    black:   '0x0f0e0d'
+    red:     '0x845336'
+    green:   '0x57553c'
+    yellow:  '0xa17e3e'
+    blue:    '0x43454f'
+    magenta: '0x604848'
+    cyan:    '0x5c6652'
+    white:   '0xa18b62'
 
+  # Bright colors
+  bright:
+    black:   '0x383332'
+    red:     '0x8c4f4a'
+    green:   '0x898471'
+    yellow:  '0xc8b491'
+    blue:    '0x65788f'
+    magenta: '0x755e4a'
+    cyan:    '0x718062'
+    white:   '0xbc9d66'
   # Selection colors
   #
   # Colors which should be used to draw the selection area. If selection 
@@ -202,20 +212,9 @@ colors:
   #  text: '0xeaeaea'
   #  background: '0x404040'
 
-  # Bright colors
-  bright:
-    black:   '0x5e5e5e'
-    red:     '0xff8781'
-    green:   '0xffa095'
-    yellow:  '0xff948b'
-    blue:    '0xfeb2aa'
-    magenta: '0xebbbb5'
-    cyan:    '0xffaaa0'
-    white:   '0xffffff'
-
   # Dim colors
   #
-  # If the dim colors are not set, they will be calculated automatically based
+  # If the dim colors are no set, they will be calculated automatically based
   # on the `normal` colors.
   #dim:
   #  black:   '0x000000'
