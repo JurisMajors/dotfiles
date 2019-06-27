@@ -55,13 +55,34 @@ map gC cd ~/.config/
 map gd cd ~/Downloads
 map gr cd /
 map gp cd -
+cmd mark-edit ${{
+    $EDITOR ~/.local/share/lf/marks
+    lf -remote "send sync"
+    }}
+cmd mark-clear ${{
+    marks=~/.local/share/lf/marks
+    if [ -f $marks ] ; then
+        rm $marks
+        lf -remote "send sync"
+    fi
+}}
+
 # make directories
-cmd mkdir %mkdir "$@"
-cmd touch %touch "$@"
+cmd touch %touch "$(echo $* | tr ' ' '\ ')"
+cmd mkdir %mkdir "$(echo $* | tr ' ' '\ ')"
 map ad push :mkdir<space>
 map af push :touch<space>
+
+# rename current file without overwrite
+cmd rename %mv $f "$(echo $* | tr ' ' '\ ')"
+map r push :rename<space>
+
 # upload files/outputs and copy link to clipboard
 map of upload_file
+cmd upload_file $ {{
+    /home/juris/bin/upload -n $f
+    file=$f
+}}
 
 map zn set info
 map zs set info size
@@ -86,14 +107,6 @@ cmd open ${{
 
 cmd open_with $$* $f
 
-cmd upload_file $ {{
-    /home/juris/bin/upload -n $f
-    file=$f
-}}
-
-# rename current file without overwrite
-cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-map r push :rename<space>
 
 # make sure trash folder exists
 %mkdir -p ~/.trash
