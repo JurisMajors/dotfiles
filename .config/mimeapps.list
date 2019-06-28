@@ -1,0 +1,5 @@
+
+[Default Applications]
+image/jpeg=sxiv.desktop
+image/gif=sxiv.desktop
+x-scheme-handler/sgnl=signal-desktop-beta.desktop
