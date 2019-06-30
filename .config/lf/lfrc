@@ -57,6 +57,10 @@ map gC cd ~/.config/
 map gd cd ~/Downloads
 map gr cd /
 map gp cd -
+
+map S push :glob-select<space>
+map U push :glob-unselect<space>
+
 cmd mark-edit ${{
     $EDITOR ~/.local/share/lf/marks
     lf -remote "send sync"

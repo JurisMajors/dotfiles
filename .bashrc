@@ -1,5 +1,5 @@
 PS2='> '
-export PS1="\[\033[38;5;52m\][\[$(tput sgr0)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;9m\]\w\[$(tput sgr0)\]\[\033[38;5;52m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+export PS1="\[\033[38;5;202m\][\[$(tput sgr0)\]\[\033[38;5;215m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;214m\]\w\[$(tput sgr0)\]\[\033[38;5;202m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 set -o vi
 stty -ixon
 export EDITOR=nvim
@@ -25,6 +25,7 @@ lfcd () {
 alias lf="lfcd"
 alias sp="sudo pacman"
 alias v="nvim"
+alias t='python ~/Desktop/t/t.py --task-dir ~/tasks --list tasks'
 alias ls='ls --color=auto'
 alias tb="nc seashells.io 1337"
 alias cb="xclip -selection clipboard"
