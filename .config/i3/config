@@ -10,7 +10,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -208,7 +208,7 @@ bar {
 			background $inactive-bg-color
 		    	separator #757575
 			#                  border             background         text
-			focused_workspace  #580000            #580000            $text-color
+			focused_workspace  #846f4a            #846f4a            $text-color
 			inactive_workspace $inactive-bg-color $inactive-bg-color $text-color
 			urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 		}

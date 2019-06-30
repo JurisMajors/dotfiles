@@ -1,2 +1,7 @@
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+
+[Default Applications]
+image/jpeg=sxiv.desktop
+image/gif=sxiv.desktop
+x-scheme-handler/sgnl=signal-desktop-beta.desktop
