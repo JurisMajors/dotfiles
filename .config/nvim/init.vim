@@ -100,7 +100,7 @@ let g:UltiSnipsEditSplit="vertical"
 " let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme molokayo
+colorscheme Tomorrow-Night-Bright
 syntax enable
 
 let mapleader="\<SPACE>"
