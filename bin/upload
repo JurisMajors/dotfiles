@@ -23,4 +23,4 @@ then
     CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM"
 fi
 
-imgur.sh "$FILE"
+~/bin/imgur.sh "$FILE"
