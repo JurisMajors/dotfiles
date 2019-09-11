@@ -20,7 +20,15 @@ then
     AUTHOR=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 "$FILE")
     TITLE=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$FILE")
     ALBUM=$(ffprobe -loglevel error -show_entries format_tags=album -of default=noprint_wrappers=1:nokey=1 "$FILE")
-    CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM"
+    CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM "
 fi
 
-~/bin/imgur.sh "$FILE"
+TMPFILE='/tmp/hostmystuff.tmp'
+SIGNATURE=$(gpg --sign --output $TMPFILE $FILE)
+
+LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.ml)
+$(rm -f $TMPFILE)
+echo "$LINK"
+notify-send -t 1000 "file has been uploaded to $LINK";
+$(echo "$CLIPMSG$LINK" | xclip -sel c)&
+exit 1
