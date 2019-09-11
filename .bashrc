@@ -25,7 +25,6 @@ lfcd () {
 alias lf="lfcd"
 alias sp="sudo pacman"
 alias v="nvim"
-alias t='python ~/Desktop/t/t.py --task-dir ~/tasks --list tasks'
 alias ls='ls --color=auto'
 alias tb="nc seashells.io 1337"
 alias cb="xclip -selection clipboard"

@@ -8,5 +8,5 @@ info=$(echo -e "$SCREENSHOT\n$RECORD" | dmenu)
 # take screenshot and exit
 [ $info = $SCREENSHOT ] && ~/bin/screenshot.sh && exit 1
 # start recording
-[ $info = $RECORD ] && ~/bin/record
+[ $info = $RECORD ] && ~/bin/record && exit 1
 

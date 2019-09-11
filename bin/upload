@@ -1,6 +1,6 @@
 #!/bin/bash
 NOTIFY=false
-CLIPMSG=""
+CLIPMSG=" "
 MUSIC=false
 for i in "$@"
 do
@@ -13,9 +13,9 @@ do
             MUSIC=true ;;
     esac
 done
-FILE=${@: -1}
+FILE=$BASH_ARGV
 
-if [ $MUSIC ]
+if  $MUSIC 
 then
     AUTHOR=$(ffprobe -loglevel error -show_entries format_tags=artist -of default=noprint_wrappers=1:nokey=1 "$FILE")
     TITLE=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$FILE")
@@ -23,10 +23,4 @@ then
     CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM"
 fi
 
-RESULT=$(curl -F"file=@$FILE" http://0x0.st)
-RESULT="$CLIPMSG $RESULT"
-echo "$RESULT" | xclip -selection clipboard
-if [ $NOTIFY ] 
-then
-    notify-send -t 1000 "Link to $FILE is on clipboard!"
-fi
+~/bin/imgur.sh "$FILE"
