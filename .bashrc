@@ -25,6 +25,7 @@ lfcd () {
 alias lf="lfcd"
 alias sp="sudo pacman"
 alias v="nvim"
+alias vim="nvim"
 alias ls='ls --color=auto'
 alias tb="nc seashells.io 1337"
 alias cb="xclip -selection clipboard"
