@@ -1,14 +1,12 @@
 #!/bin/bash
 NOTIFY=false
-CLIPMSG=" "
+CLIPMSG=""
 MUSIC=false
 for i in "$@"
 do
     case $i in
         -n)
             NOTIFY=true ;;
-        --msg=*)
-            CLIPMSG="${i#*=}" ;;
         -s)
             MUSIC=true ;;
     esac
@@ -28,7 +26,12 @@ SIGNATURE=$(gpg --sign --output $TMPFILE $FILE)
 
 LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.ml)
 $(rm -f $TMPFILE)
-echo "$LINK"
-notify-send -t 1000 "file has been uploaded to $LINK";
+
+if $NOTIFY
+then
+    notify-send -t 1000 "file has been uploaded to $LINK";
+fi
+
+# copy to clipboard
 $(echo "$CLIPMSG$LINK" | xclip -sel c)&
 exit 1
