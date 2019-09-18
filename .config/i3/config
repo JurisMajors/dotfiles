@@ -157,6 +157,7 @@ focus_follows_mouse no
 
 # screenshot to clipboard
 bindsym $mod+Control+s exec capture_select
+bindsym $mod+Control+x exec xclip -out -sel clip | $HOME/bin/upload
 # music player
 bindsym XF86AudioPlay exec mpc toggle
 # skip song 
@@ -215,5 +216,6 @@ bar {
 
 }
 
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
 #open software in specific workspaces
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
