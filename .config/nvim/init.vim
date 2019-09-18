@@ -23,9 +23,11 @@ if dein#load_state('/home/juris/.cache/dein')
   call dein#add('tpope/vim-surround')
   " autocomplete and syntax checking
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('artur-shaik/vim-javacomplete2') " java
   call dein#add('vim-syntastic/syntastic')
-  call dein#add('davidhalter/jedi-vim') " python completion
+  call dein#add('deoplete-plugins/deoplete-jedi') " python completion
+  call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
+  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
+  call dein#add('moby/moby', {'rtp' : '/contrib/syntax/vim/'})
   " latex support
   call dein#add('lervag/vimtex')
   " snippets
@@ -45,40 +47,18 @@ endif
 
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-" default deoplete settings
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 0
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = []
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
-" recommended synatsic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFLag()}
-"set statusline+=%*
-
+let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-" autocomplete only on ctrl space
-let g:deoplete#disable_auto_complete = 1
-inoremap <silent><expr> <C-Space>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ deoplete#mappings#manual_complete()
 
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunc
 
-" python auto complete
-let g:jedi#popup_on_dot=0
-let g:jedi#completions_command="<C-Space>"
 " tex setup
 let g:tex_flavor  = 'latex'
 let g:tex_conceal = ''
