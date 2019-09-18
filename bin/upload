@@ -11,7 +11,7 @@ do
             MUSIC=true ;;
     esac
 done
-FILE=$( echo "$BASH_ARGV" | sed 's/ /\\ /g' )
+FILE="$BASH_ARGV"
 
 if  $MUSIC 
 then
@@ -22,7 +22,7 @@ then
 fi
 
 TMPFILE='/tmp/hostmystuff.tmp'
-gpg --sign --output $TMPFILE $FILE
+gpg --sign --output $TMPFILE "$FILE"
 
 LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.ml)
 $(rm -f $TMPFILE)
