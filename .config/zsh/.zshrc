@@ -1,5 +1,6 @@
 # load environment variables
 [ -f "$HOME/.envrc" ] && source ~/.envrc
+
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="eastwood"
@@ -37,10 +38,21 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^F' 'lfcd\n'
+bindkey -s '^f' 'lfcd\n'
 ENABLE_CORRECTION="true"
 
-plugins=(zsh-syntax-highlighting docker golang docker-compose fzf git gpg-agent pip sudo alias-finder)
+plugins=(
+    zsh-syntax-highlighting 
+    docker 
+    golang 
+    docker-compose 
+    fzf 
+    git 
+    gpg-agent 
+    pip 
+    sudo 
+    colored-man-pages
+)
 
 source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.lficons" ] && source ~/.lficons
