@@ -24,7 +24,7 @@ fi
 TMPFILE='/tmp/hostmystuff.tmp'
 gpg --sign --output $TMPFILE "$FILE"
 
-LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.ml)
+LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.xyz)
 $(rm -f $TMPFILE)
 
 if $NOTIFY
