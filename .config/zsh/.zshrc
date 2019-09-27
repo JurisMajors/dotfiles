@@ -1,14 +1,10 @@
 # load environment variables
-[ -f "$HOME/.envrc" ] && source ~/.envrc
+[ -f "$HOME/.config/.envrc" ] && source ~/.config/.envrc
 
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="eastwood"
 autoload -U colors && colors
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -16,11 +12,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
-
-# Edit line in vim with ctrl-z:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^z' edit-command-line
-
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -38,11 +29,11 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^f' 'lfcd\n'
 ENABLE_CORRECTION="true"
 
 plugins=(
     zsh-syntax-highlighting 
+    sudo
     docker 
     golang 
     docker-compose 
@@ -50,11 +41,16 @@ plugins=(
     git 
     gpg-agent 
     pip 
-    sudo 
     colored-man-pages
+#    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
-[ -f "$HOME/.lficons" ] && source ~/.lficons
-[ -f "$HOME/.lficons" ] && source ~/.lficons
-[ -f "$HOME/.aliases" ] && source ~/.aliases
+
+#bindkey -v
+export FZF_BASE=/usr/share/fzf
+bindkey -s '^f' 'lfcd\n'
+export KEYTIMEOUT=1
+
+[ -f "$HOME/.config/lf/.lficons" ] && source ~/.config/lf/.lficons
+[ -f "$HOME/.config/.aliases" ] && source ~/.config/.aliases
