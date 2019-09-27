@@ -1,0 +1,9 @@
+#!/bin/sh
+DIRECTORY=/home/juris/Wallpapers/
+CHANGING_INTERVAL=120 # 20 minutes
+
+while :
+do
+    $(feh --randomize --bg-fill $DIRECTORY)
+    sleep ${CHANGING_INTERVAL}
+done

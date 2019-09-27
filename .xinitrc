@@ -7,4 +7,7 @@ fi
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 mpd ~/.config/mpd/mpd.conf
+xrandr --dpi 140
+~/bin/layout.sh
+~/bin/wallpapershow &
 exec i3
