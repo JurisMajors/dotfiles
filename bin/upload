@@ -21,12 +21,7 @@ then
     CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM "
 fi
 
-TMPFILE='/tmp/hostmystuff.tmp'
-gpg --sign --output $TMPFILE "$FILE"
-
-LINK=$(curl -F"file=@$TMPFILE" https://www.hostmystuff.xyz)
-$(rm -f $TMPFILE)
-
+LINK=$(curl --header "key: $(cat ./hostmystuffkey)" -F"file=@$FILE" https://hostmystuff.xyz)
 if $NOTIFY
 then
     notify-send -t 1000 "file has been uploaded to $LINK";
