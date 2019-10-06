@@ -21,7 +21,7 @@ then
     CLIPMSG="Listen to... $AUTHOR - $TITLE, from album $ALBUM "
 fi
 
-LINK=$(curl --header "key: $(cat ./hostmystuffkey)" -F"file=@$FILE" https://hostmystuff.xyz)
+LINK=$(curl --header "key: $(cat $HOME/bin/hostmystuffkey)" -F"file=@$FILE" https://hostmystuff.xyz)
 if $NOTIFY
 then
     notify-send -t 1000 "file has been uploaded to $LINK";
