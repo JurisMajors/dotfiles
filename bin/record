@@ -4,7 +4,7 @@
 DELAY=2
 
 # Duration and output file
-tmp=$(mktemp)
+tmp=$(mktemp /tmp/XXXXXXXX.$1)
 
 IFS=" " read -ra RECTANGLE <<< "$(slop --highlight --color=0.3,0.4,0.6,0.4 -f "%x %y %w %h")" || exit -1
 # delay for recording

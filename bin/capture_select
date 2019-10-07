@@ -1,12 +1,14 @@
 #!/bin/sh
 # declare options
 SCREENSHOT="screenshot"
-RECORD="capture"
+RECORD="video"
+RECORDGIF="gif"
 # pipe to dmenu
-info=$(echo -e "$SCREENSHOT\n$RECORD" | dmenu)
-# parse output
-# take screenshot and exit
+info=$(echo -e "$SCREENSHOT\n$RECORD\n$RECORDGIF" | dmenu)
+
 [ $info = $SCREENSHOT ] && ~/bin/screenshot.sh && exit 1
-# start recording
-[ $info = $RECORD ] && ~/bin/record && exit 1
+
+[ $info = $RECORD ] && ~/bin/record 'webm' && exit 1
+
+[ $info = $RECORDGIF ] && ~/bin/record 'gif' && exit 1
 
