@@ -1,0 +1,9 @@
+# aliases
+alias sp="sudo pacman"
+# alias lf="lfcd"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias ls='ls --color=auto'
+alias tb="nc seashells.io 1337"
+alias cb="xclip -selection clipboard"

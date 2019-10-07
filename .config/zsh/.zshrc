@@ -5,19 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="eastwood"
 autoload -U colors && colors
-
-# Basic auto/tab complete:
-autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
 
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -42,10 +32,22 @@ plugins=(
     gpg-agent 
     pip 
     colored-man-pages
-#    vi-mode
+    zsh-completions
 )
 
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
 source $ZSH/oh-my-zsh.sh
+source $HOME/zsh-completion-generator/zsh-completion-generator.plugin.zsh
+
+# Basic auto/tab complete:
+autoload -U compinit && compinit
+_comp_options+=(globdots)		# Include hidden files.
 
 #bindkey -v
 export FZF_BASE=/usr/share/fzf
