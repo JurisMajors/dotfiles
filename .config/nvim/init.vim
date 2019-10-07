@@ -80,7 +80,8 @@ let g:UltiSnipsEditSplit="vertical"
 " let g:airline_powerline_fonts=1
 let g:asyncrun_open=6
 set rtp+=~/.fzf
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
+colorscheme molokai
 syntax enable
 
 let mapleader="\<SPACE>"
