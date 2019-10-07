@@ -9,3 +9,4 @@ vnoremap > >gv
 
 set rnu
 set nu
+set ideajoin
